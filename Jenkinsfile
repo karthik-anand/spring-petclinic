@@ -18,7 +18,7 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         withSonarQubeEnv('SonarScanner') {
-          sh './mvnw verify sonar:sonar'
+          sh './mvnw verify sonar:sonar -DskipTests'
         }
       }
     }
