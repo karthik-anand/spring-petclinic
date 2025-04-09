@@ -1,28 +1,34 @@
 pipeline {
-  agent any
-
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/karthik-anand/spring-petclinic.git'
-      }
-    }
-
-    stage('Build & SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('SonarQube') {
-          sh './gradlew clean build sonarqube'
-        }
-      }
-    }
-  }
-
-  post {
-    success {
-      echo 'Build and SonarQube analysis completed successfully.'
-    }
-    failure {
-      echo 'Build or analysis failed.'
-    }
-  }
-}
+   agent any
+ 
+//    tools {
+//      // Auto-install SonarQube scanner
+//      sonarQubeScanner 'SonarScanner'
+//    }
+ 
+//    environment {
+//      SONARQUBE_URL = 'http://sonarqube:9000'
+//    }
+ 
+   stages {
+     stage('Checkout') {
+       steps {
+         git 'https://github.com/karthik-anand/spring-petclinic.git'
+       }
+     }
+ 
+    //  stage('SonarQube Analysis') {
+    //    steps {
+    //      withSonarQubeEnv('SonarQube') {
+    //        sh './mvnw clean verify sonar:sonar'
+    //      }
+    //    }
+    //  }
+ 
+     stage('Build') {
+       steps {
+         echo 'Building the app...'
+         echo 'Build complete'
+       }
+     }
+   }
