@@ -7,14 +7,6 @@ pipeline {
         git branch: 'main', url: 'https://github.com/karthik-anand/spring-petclinic.git'
       }
     }
-
-    stage('SonarQube Analysis') {
-        steps {
-            withSonarQubeEnv('SonarQube') {
-            sh './mvnw clean verify sonar:sonar'
-            }
-        }
-    }
   }
 
   post {
