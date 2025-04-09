@@ -10,18 +10,18 @@ pipeline {
 
     stage('Build') {
       steps {
-        echo 'Building the app with Gradle...'
-        sh './gradlew clean build'
+        echo 'Building the app with Maven...'
+        sh './mvnw clean install'
       }
     }
   }
 
   post {
     success {
-      echo 'Build completed successfully!'
+      echo 'Build and tests completed successfully!'
     }
     failure {
-      echo 'Build failed. Check logs.'
+      echo 'Build or tests failed. Check console output.'
     }
   }
 }
