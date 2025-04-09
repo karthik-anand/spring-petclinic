@@ -8,12 +8,12 @@ pipeline {
       }
     }
 
-    // stage('Build') {
-    //   steps {
-    //     echo 'Building the app with Maven with skiptests...'
-    //     sh './mvnw clean install -DskipTests'
-    //   }
-    // }
+    stage('Build') {
+      steps {
+        echo 'Building the app with Maven with skiptests...'
+        sh './mvnw clean install -DskipTests'
+      }
+    }
   }
 
   post {
