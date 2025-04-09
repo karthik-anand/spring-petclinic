@@ -14,6 +14,14 @@ pipeline {
         sh './mvnw clean install -DskipTests'
       }
     }
+
+    stage('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh './mvnw verify sonar:sonar'
+        }
+      }
+    }
   }
 
   post {
