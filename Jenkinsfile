@@ -1,15 +1,6 @@
 pipeline {
   agent any
 
-  tools {
-    // Auto-install SonarQube scanner
-    sonarQubeScanner 'SonarScanner'
-  }
-
-  environment {
-    SONARQUBE_URL = 'http://sonarqube:9000'
-  }
-
   stages {
     stage('Checkout') {
       steps {
@@ -17,18 +8,21 @@ pipeline {
       }
     }
 
-    stage('SonarQube Analysis') {
+    stage('Build & SonarQube Analysis') {
       steps {
         withSonarQubeEnv('SonarQube') {
-          sh './mvnw clean verify sonar:sonar'
+          sh './gradlew clean build sonarqube'
         }
       }
     }
+  }
 
-    stage('Build') {
-      steps {
-        echo 'Build complete'
-      }
+  post {
+    success {
+      echo 'Build and SonarQube analysis completed successfully.'
+    }
+    failure {
+      echo 'Build or analysis failed.'
     }
   }
 }

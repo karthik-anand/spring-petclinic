@@ -6,6 +6,7 @@ plugins {
   id 'org.cyclonedx.bom' version '1.10.0'
   id 'io.spring.javaformat' version '0.0.43'
   id "io.spring.nohttp" version "0.0.11"
+  id "org.sonarqube" version "4.0.0.2929"
 }
 
 apply plugin: 'java'
@@ -88,3 +89,11 @@ checkFormatAotTest.enabled = false
 
 formatAot.enabled = false
 formatAotTest.enabled = false
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "petclinic"
+        property "sonar.host.url", "http://sonarqube:9000"
+        property "sonar.login", "squ_5e759e603be368ccce0ee53783c8e15bce8d0339"
+    }
+}
