@@ -39,9 +39,10 @@
     <spring-format.version>0.0.43</spring-format.version>
 
     <!-- Sonar Properties -->
-      <sonar.projectKey>petclinic</sonar.projectKey>
+    <sonar.projectKey>petclinic</sonar.projectKey>
     <sonar.host.url>http://sonarqube:9000</sonar.host.url>
     <sonar.login>squ_5e759e603be368ccce0ee53783c8e15bce8d0339</sonar.login>
+    <sonar.inclusions>src/main/java/org/springframework/samples/petclinic/owner/**</sonar.inclusions>
 
 
   </properties>

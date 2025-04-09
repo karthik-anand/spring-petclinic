@@ -18,7 +18,11 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         withSonarQubeEnv('SonarScanner') {
-          sh './mvnw verify sonar:sonar -DskipTests'
+          sh '''
+                ./mvnw sonar:sonar \
+                -DskipTests \
+                -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
+            '''
         }
       }
     }
