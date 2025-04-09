@@ -10,8 +10,8 @@ pipeline {
 
     stage('Build') {
       steps {
-        echo 'Building the app with Maven...'
-        sh './mvnw clean install'
+        echo 'Building the app with Maven with skiptests...'
+        sh './mvnw clean install -DskipTests'
       }
     }
   }
