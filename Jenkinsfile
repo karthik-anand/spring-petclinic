@@ -8,11 +8,12 @@ pipeline {
       }
     }
 
-    stage('Build') {
-      steps {
-        echo 'Building the app with Maven...'
-        sh './mvnw clean install'
-      }
+    stage('SonarQube Analysis') {
+        steps {
+            withSonarQubeEnv('SonarQube') {
+            sh './mvnw clean verify sonar:sonar'
+            }
+        }
     }
   }
 
