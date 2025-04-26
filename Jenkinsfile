@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    NGROK_URL = 'https://0968-128-237-82-112.ngrok-free.app' // Replace with your actual ngrok URL
+    NGROK_URL = 'https://57c4-2601-540-181-f210-d03c-e261-d91a-eed2.ngrok-free.app' 
   }
 
 
