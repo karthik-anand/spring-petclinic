@@ -13,24 +13,24 @@ pipeline {
       }
     }
 
-    // stage('Build') {
-    //   steps {
-    //     echo 'Building the app with Maven with skiptests...'
-    //     sh './mvnw clean install -DskipTests'
-    //   }
-    // }
+    stage('Build') {
+      steps {
+        echo 'Building the app with Maven with skiptests...'
+        sh './mvnw clean install -DskipTests'
+      }
+    }
 
-    // stage('SonarQube Analysis') {
-    //   steps {
-    //     withSonarQubeEnv('SonarScanner') {
-    //       sh '''
-    //             ./mvnw sonar:sonar \
-    //             -DskipTests \
-    //             -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
-    //         '''
-    //     }
-    //   }
-    // }
+    stage('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('SonarScanner') {
+          sh '''
+                ./mvnw sonar:sonar \
+                -DskipTests \
+                -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
+            '''
+        }
+      }
+    }
 
     // stage('OWASP ZAP Scan') {
     //   steps {
