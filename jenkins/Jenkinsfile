@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    NGROK_URL = 'https://ef0d-2601-540-181-f210-d03c-e261-d91a-eed2.ngrok-free.app' 
+    NGROK_URL = 'https://2d0c-128-237-82-212.ngrok-free.app' 
   }
 
 
@@ -20,17 +20,17 @@ pipeline {
       }
     }
 
-    stage('SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('SonarScanner') {
-          sh '''
-                ./mvnw sonar:sonar \
-                -DskipTests \
-                -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
-            '''
-        }
-      }
-    }
+    // stage('SonarQube Analysis') {
+    //   steps {
+    //     withSonarQubeEnv('SonarScanner') {
+    //       sh '''
+    //             ./mvnw sonar:sonar \
+    //             -DskipTests \
+    //             -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
+    //         '''
+    //     }
+    //   }
+    // }
 
     // stage('OWASP ZAP Scan') {
     //   steps {
