@@ -32,36 +32,36 @@ pipeline {
       }
     }
 
-    // stage('OWASP ZAP Scan') {
-    //   steps {
-    //     sh '''
-    //       mkdir -p zap-output
-    //       docker run --rm -u zap \
-    //         -v $(pwd)/zap-output:/zap/wrk \
-    //         ghcr.io/zaproxy/zaproxy:stable \
-    //         zap.sh -cmd \
-    //           -quickurl $NGROK_URL \
-    //           -quickout /zap/wrk/report.html \
-    //           -quickprogress
-    //     '''
-    //   }
-    // }
+    stage('OWASP ZAP Scan') {
+      steps {
+        sh '''
+          mkdir -p zap-output
+          docker run --rm -u zap \
+            -v $(pwd)/zap-output:/zap/wrk \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap.sh -cmd \
+              -quickurl $NGROK_URL \
+              -quickout /zap/wrk/report.html \
+              -quickprogress
+        '''
+      }
+    }
 
   }
 
   post {
-    // always {
-    //   archiveArtifacts artifacts: 'zap-output/report.html', allowEmptyArchive: true
+    always {
+      archiveArtifacts artifacts: 'zap-output/report.html', allowEmptyArchive: true
 
-    //   publishHTML(target: [
-    //     reportName: 'OWASP ZAP Report',
-    //     reportDir: 'zap-output',
-    //     reportFiles: 'report.html',
-    //     keepAll: true,
-    //     alwaysLinkToLastBuild: true,
-    //     allowMissing: true
-    //   ])
-    // }
+      publishHTML(target: [
+        reportName: 'OWASP ZAP Report',
+        reportDir: 'zap-output',
+        reportFiles: 'report.html',
+        keepAll: true,
+        alwaysLinkToLastBuild: true,
+        allowMissing: true
+      ])
+    }
     success {
       echo 'Build and tests completed successfully!'
     }
