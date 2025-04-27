@@ -23,6 +23,11 @@
   args:
     chdir: /opt/spring-petclinic
 
+- name: Stop service
+  ansible.builtin.systemd:
+    name: petclinic
+    state: stopped
+
 - name: Install systemd service
   ansible.builtin.copy:
     src: petclinic.service
