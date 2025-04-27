@@ -94,6 +94,6 @@ sonarqube {
     properties {
         property "sonar.projectKey", "petclinic"
         property "sonar.host.url", "http://sonarqube:9000"
-        property "sonar.login", "squ_5e759e603be368ccce0ee53783c8e15bce8d0339"
+        property "sonar.login", "squ_147e4384621df252bb18fd6b3772f599b501f7a5"
     }
 }
