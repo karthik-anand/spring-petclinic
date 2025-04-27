@@ -19,14 +19,9 @@
 
 - name: Build application
   ansible.builtin.shell:
-    cmd: ./mvnw package
+    cmd: ./mvnw clean package
   args:
     chdir: /opt/spring-petclinic
-
-- name: Stop service
-  ansible.builtin.systemd:
-    name: petclinic
-    state: stopped
 
 - name: Install systemd service
   ansible.builtin.copy:
