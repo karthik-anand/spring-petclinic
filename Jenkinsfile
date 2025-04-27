@@ -20,17 +20,17 @@ pipeline {
       }
     }
 
-    // stage('SonarQube Analysis') {
-    //   steps {
-    //     withSonarQubeEnv('SonarScanner') {
-    //       sh '''
-    //             ./mvnw sonar:sonar \
-    //             -DskipTests \
-    //             -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
-    //         '''
-    //     }
-    //   }
-    // }
+    stage('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('SonarScanner') {
+          sh '''
+                ./mvnw sonar:sonar \
+                -DskipTests \
+                -Dsonar.inclusions=src/main/java/org/springframework/samples/petclinic/owner/**
+            '''
+        }
+      }
+    }
 
     // stage('OWASP ZAP Scan') {
     //   steps {
