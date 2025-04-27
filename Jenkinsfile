@@ -32,15 +32,6 @@ pipeline {
       }
     }
 
-    stage('Install Ansible') {
-      steps {
-          sh '''
-              sudo apt update
-              sudo apt install -y ansible
-          '''
-      }
-    }
-
     stage('Deploy App on prod-server') {
       steps {
           dir('ansible') {
