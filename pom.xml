@@ -41,7 +41,7 @@
     <!-- Sonar Properties -->
     <sonar.projectKey>petclinic</sonar.projectKey>
     <sonar.host.url>http://sonarqube:9000</sonar.host.url>
-    <sonar.login>squ_5e759e603be368ccce0ee53783c8e15bce8d0339</sonar.login>
+    <sonar.login>squ_66928956c20ff83b4d5cc66a0d739d4645332a2f</sonar.login>
     <sonar.inclusions>src/main/java/org/springframework/samples/petclinic/owner/**</sonar.inclusions>
 
 
