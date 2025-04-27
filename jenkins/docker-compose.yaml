@@ -43,6 +43,14 @@ services:
     networks:
       - monitoring
 
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    container_name: zap
+    networks:
+      - monitoring
+    depends_on:
+      - jenkins
+
 volumes:
   jenkins_home:
 

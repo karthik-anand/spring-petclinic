@@ -39,13 +39,11 @@ pipeline {
       steps {
         sh '''
           mkdir -p zap-output
-          docker run --rm -u zap \
-            -v $(pwd)/zap-output:/zap/wrk \
-            ghcr.io/zaproxy/zaproxy:stable \
-            zap.sh -cmd \
-              -quickurl http://172.16.119.128:8080/ \
-              -quickout /zap/wrk/report.html \
-              -quickprogress
+          docker exec zap zap.sh -cmd \
+            -quickurl http://172.16.119.128:8080/ \
+            -quickout /zap/wrk/report.html \
+            -quickprogress
+          docker cp zap:/zap/wrk/report.html zap-output/report.html
         '''
       }
     }
