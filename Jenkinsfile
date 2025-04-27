@@ -35,7 +35,7 @@ pipeline {
     stage('Deploy App on prod-server') {
       steps {
           dir('ansible') {
-              sh 'ansible-playbook -i hosts playbook.yml'
+              sh 'ansible-playbook -v -i hosts playbook.yml'
           }
       }
     }
