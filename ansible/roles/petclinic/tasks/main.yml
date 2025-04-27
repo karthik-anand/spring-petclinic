@@ -14,7 +14,7 @@
 
 - name: Clone repository
   ansible.builtin.git:
-    repo: https://github.com/spring-projects/spring-petclinic.git
+    repo: https://github.com/karthik-anand/spring-petclinic.git
     dest: /opt/spring-petclinic
 
 - name: Build application
