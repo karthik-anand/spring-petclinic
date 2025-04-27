@@ -50,16 +50,7 @@ pipeline {
       }
     }
 
-
-  //   docker run --rm \                                           
-  // -u zap \
-  // -v $(pwd)/zap-reports:/zap/wrk \
-  // ghcr.io/zaproxy/zaproxy:stable \
-  // zap.sh -cmd -quickurl http://172.16.119.128:8080/ \
-  // -quickout /zap/wrk/report.html \
-  // -quickprogress
-
-  // }
+  }
 
   post {
     always {
